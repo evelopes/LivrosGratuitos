@@ -58,3 +58,23 @@ li {
     max-width: 100%;
     border: #000000 2px;
 }
+
+
+@media only screen and (max-width: 768px) {
+    #livros-container,
+    .menu {
+        display: flex;
+        max-width: 95%;
+        flex-wrap: wrap;
+        padding: 15px;
+        justify-content: center;
+    }
+    
+    .links {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        width: 100%;
+        list-style-type: none;
+    }
+}
