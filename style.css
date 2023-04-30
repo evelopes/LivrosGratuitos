@@ -56,4 +56,5 @@ li {
 
 .tutorial {
     max-width: 100%;
+    border: #000000 2px;
 }
