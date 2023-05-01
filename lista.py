@@ -36,7 +36,6 @@ def main():
     nomeLivros = []
     linkLivros = []
     imagensLivrs = []
-    dadosLivros = []
 
     for itens in imagens:
         img = itens.find('img', class_='s-image')
