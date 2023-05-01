@@ -3,8 +3,9 @@ from bs4 import BeautifulSoup
 import datetime
 import re
 
+
 def main():
-    pattern = r'srcset="([^"]+)"' # re
+    pattern = r'srcset="([^"]+)"'  # re
 
     now = datetime.datetime.now()
     hour = now.hour
@@ -29,9 +30,11 @@ def main():
     site = requests.get(url, headers=headers)
     soup = BeautifulSoup(site.content, 'html.parser')
 
-    livros = soup.find_all( 'div', class_='sg-col-20-of-24 s-result-item s-asin sg-col-0-of-12 sg-col-16-of-20 sg-col s-widget-spacing-small sg-col-12-of-16')
+    livros = soup.find_all(
+        'div', class_='sg-col-20-of-24 s-result-item s-asin sg-col-0-of-12 sg-col-16-of-20 sg-col s-widget-spacing-small sg-col-12-of-16')
     linksBook = soup.find_all('a', class_='a-link-normal s-no-outline')
-    imagens = soup.find_all('div', class_='a-section aok-relative s-image-fixed-height')
+    imagens = soup.find_all(
+        'div', class_='a-section aok-relative s-image-fixed-height')
 
     nomeLivros = []
     linkLivros = []
@@ -46,7 +49,8 @@ def main():
             imagensLivrs.append(last_link)
 
     for itens in livros:
-        nome = itens.find('span', class_='a-size-medium a-color-base a-text-normal').get_text()
+        nome = itens.find(
+            'span', class_='a-size-medium a-color-base a-text-normal').get_text()
         nomeArrumado = "" + nome.replace('"', "'")
         nomeLivros.append(nomeArrumado)
 
@@ -60,9 +64,11 @@ def main():
         for i in range(16):
             urlBook = linkLivros[i]
             nameBook = nomeLivros[i]
-            imgBook =imagensLivrs[i]
+            imgBook = imagensLivrs[i]
             objetoLivro = f'{{"imagem": "{imgBook}", "url": "{urlBook}", "nome": "{nameBook}"}}\n'
             arquivo.write(objetoLivro)
             arquivo.write(',')
         arquivo.write('];')
+
+
 main()
