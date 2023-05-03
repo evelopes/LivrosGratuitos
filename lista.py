@@ -63,14 +63,20 @@ def main():
 def escreveArquivo(linkLivros, nomeLivros, imagensLivrs):
     with open('livros.js', 'w', encoding='utf-8') as arquivo:
         arquivo.write('export const listaLivros = [')
-        for i in range(16):
-            urlBook = linkLivros[i]
-            nameBook = nomeLivros[i]
-            imgBook = imagensLivrs[i]
-            objetoLivro = f'{{"imagem": "{imgBook}", "url": "{urlBook}", "nome": "{nameBook}"}}\n'
-            arquivo.write(objetoLivro)
-            arquivo.write(',')
-        arquivo.write('];')
+        try:
+            for i in range(16):
+                urlBook = linkLivros[i]
+                nameBook = nomeLivros[i]
+                imgBook = imagensLivrs[i]
+                objetoLivro = f'{{"imagem": "{imgBook}", "url": "{urlBook}", "nome": "{nameBook}"}}\n'
+                arquivo.write(objetoLivro)
+                arquivo.write(',')
+            arquivo.write('];')
+        except Exception as e:
+            main()
+        finally:
+            print("executando de novo")
+
     
     with open('livros.js', 'r', encoding='utf-8') as arq:
         linhas = arq.readlines()
@@ -78,4 +84,3 @@ def escreveArquivo(linkLivros, nomeLivros, imagensLivrs):
             main()
 
 main()
-print("Fim")
