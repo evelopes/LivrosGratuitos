@@ -58,9 +58,7 @@ def main():
         linkDoLivro = it.get('href')
         linksCompletos = f'https://www.amazon.com.br{linkDoLivro}&linkCode=ll1&tag=ofertasespeciais-20'
         linkLivros.append(""+linksCompletos)
-    escreveArquivo(linkLivros, nomeLivros, imagensLivrs)
 
-def escreveArquivo(linkLivros, nomeLivros, imagensLivrs):
     with open('livros.js', 'w', encoding='utf-8') as arquivo:
         arquivo.write('export const listaLivros = [')
         for i in range(16):
@@ -71,11 +69,6 @@ def escreveArquivo(linkLivros, nomeLivros, imagensLivrs):
             arquivo.write(objetoLivro)
             arquivo.write(',')
         arquivo.write('];')
-    
-    with open('livros.js', 'r', encoding='utf-8') as arq:
-        linhas = arq.readlines()
-        if len(linhas) < 2:
-            main()
+
 
 main()
-print("Fim")
