@@ -2,6 +2,8 @@ import os
 import schedule
 import time
 
+
+print('Executando o atualizarPagina.py')
 def atualizar():
     os.system("python lista.py")
 
