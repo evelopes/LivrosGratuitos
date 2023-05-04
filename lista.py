@@ -9,10 +9,6 @@ def main():
 
     now = datetime.datetime.now()
     hour = now.hour
-    minute = now.minute
-
-    data_atual = datetime.date.today()
-    data_em_texto = data_atual.strftime('%d/%m/%Y')
 
     # LINK E CABEÇALHO DO SCRAP
     if 0 <= hour < 12:
