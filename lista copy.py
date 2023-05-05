@@ -5,7 +5,7 @@ import re
 from listaTemas import temas, linksPorTema
 
 
-def main(url):
+def main(url, tema):
     pattern = r'srcset="([^"]+)"'  # re
 
     now = datetime.datetime.now()
@@ -45,12 +45,12 @@ def main(url):
         linkDoLivro = it.get('href')
         linksCompletos = f'https://www.amazon.com.br{linkDoLivro}&linkCode=ll1&tag=ofertasespeciais-20'
         linkLivros.append(""+linksCompletos)
-    escreveArquivo(linkLivros, nomeLivros, imagensLivrs, url)
+    escreveArquivo(linkLivros, nomeLivros, imagensLivrs, url, tema)
 
-def escreveArquivo(linkLivros, nomeLivros, imagensLivrs, url):
+def escreveArquivo(linkLivros, nomeLivros, imagensLivrs, url, tema):
     with open('livros2.js', 'a', encoding='utf-8') as arquivo:
         try:
-            for i in range(16):
+            for i in range(8):
                 urlBook = linkLivros[i]
                 nameBook = nomeLivros[i]
                 imgBook = imagensLivrs[i]
@@ -58,23 +58,28 @@ def escreveArquivo(linkLivros, nomeLivros, imagensLivrs, url):
                 arquivo.write(objetoLivro)
                 arquivo.write(',')
         except Exception as e:
-            main(url)
+            main(url, tema)
         finally:
-            print("executando de novo")
+            print("executando de novo " + tema)
 
     
     with open('livros2.js', 'r', encoding='utf-8') as arq:
         linhas = arq.readlines()
         if len(linhas) < 2:
-            main(url)
+            main(url, tema)
 
 
 
 with open('livros2.js', 'w', encoding='utf-8') as arquivo:
     arquivo.write('export const listaLivros = [')
-for item in linksPorTema:
-    main(item)
+
+for i in range(30):
+    main(linksPorTema[i], temas[i])
 
 with open('livros2.js', 'a', encoding='utf-8') as arquivo:
     arquivo.write('];')
 print("Fim")
+
+
+
+            
