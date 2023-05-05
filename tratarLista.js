@@ -1,4 +1,4 @@
-import {listaLivros} from './livros.js';
+import {listaLivros} from './livros2.js';
 
 
 function displayBooks(livro) {

@@ -1,4 +1,4 @@
-const temas = [
+temas = [
     "Administração, Negócios e Economia",
     "Arte, Cinema e Fotografia",
     "Artesanato, Casa e Estilo de Vida",
@@ -32,7 +32,7 @@ const temas = [
   ];
   
 
-  const linksPorTema = [
+linksPorTema = [
     "https://amzn.to/3NIU1iO",
     "https://amzn.to/3LFfshO",
     "https://amzn.to/3pckx9X",
@@ -51,6 +51,16 @@ const temas = [
     "https://amzn.to/3VDnOv5",
     "https://amzn.to/3pfihPn",
     "https://amzn.to/3HEFSPJ",
-    ""
-
+    "https://amzn.to/3LYWCDT",
+    "https://amzn.to/41b5oD9",
+    "https://amzn.to/41a4G8U",
+    "https://amzn.to/3M0UZ8s",
+    "https://amzn.to/418owl8",
+    "https://amzn.to/3LC2r8W",
+    "https://amzn.to/3LAZnd2",
+    "https://amzn.to/44vEQPM",
+    "https://amzn.to/428qzad",
+    "https://amzn.to/44vETeq",
+    "https://amzn.to/3nyNYTc",
+    "https://amzn.to/44uLVjv"
   ]

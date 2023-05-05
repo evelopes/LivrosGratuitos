@@ -2,27 +2,14 @@ import requests
 from bs4 import BeautifulSoup
 import datetime
 import re
+from listaTemas import temas, linksPorTema
 
 
-def main():
+def main(url):
     pattern = r'srcset="([^"]+)"'  # re
 
     now = datetime.datetime.now()
     hour = now.hour
-    minute = now.minute
-
-    data_atual = datetime.date.today()
-    data_em_texto = data_atual.strftime('%d/%m/%Y')
-
-    # LINK E CABEÇALHO DO SCRAP
-    if 0 <= hour < 12:
-        url = 'https://amzn.to/40Tudnz'
-    elif 12 <= hour < 18:
-        url = 'https://amzn.to/3UvzdN2'
-    elif 18 <= hour < 22:
-        url = 'https://amzn.to/3KN1cEv'
-    else:
-        url = 'https://amzn.to/3MqqTvY'
 
     headers = {
         'User-Agent': "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/86.0.4240.198 Safari/537.36"}
@@ -58,17 +45,36 @@ def main():
         linkDoLivro = it.get('href')
         linksCompletos = f'https://www.amazon.com.br{linkDoLivro}&linkCode=ll1&tag=ofertasespeciais-20'
         linkLivros.append(""+linksCompletos)
+    escreveArquivo(linkLivros, nomeLivros, imagensLivrs, url)
 
-    with open('livros.js', 'w', encoding='utf-8') as arquivo:
-        arquivo.write('export const listaLivros = [')
-        for i in range(16):
-            urlBook = linkLivros[i]
-            nameBook = nomeLivros[i]
-            imgBook = imagensLivrs[i]
-            objetoLivro = f'{{"imagem": "{imgBook}", "url": "{urlBook}", "nome": "{nameBook}"}}\n'
-            arquivo.write(objetoLivro)
-            arquivo.write(',')
-        arquivo.write('];')
+def escreveArquivo(linkLivros, nomeLivros, imagensLivrs, url):
+    with open('livros2.js', 'a', encoding='utf-8') as arquivo:
+        try:
+            for i in range(16):
+                urlBook = linkLivros[i]
+                nameBook = nomeLivros[i]
+                imgBook = imagensLivrs[i]
+                objetoLivro = f'{{"imagem": "{imgBook}", "url": "{urlBook}", "nome": "{nameBook}"}}\n'
+                arquivo.write(objetoLivro)
+                arquivo.write(',')
+        except Exception as e:
+            main(url)
+        finally:
+            print("executando de novo")
+
+    
+    with open('livros2.js', 'r', encoding='utf-8') as arq:
+        linhas = arq.readlines()
+        if len(linhas) < 2:
+            main(url)
 
 
-main()
+
+with open('livros2.js', 'w', encoding='utf-8') as arquivo:
+    arquivo.write('export const listaLivros = [')
+for item in linksPorTema:
+    main(item)
+
+with open('livros2.js', 'a', encoding='utf-8') as arquivo:
+    arquivo.write('];')
+print("Fim")
