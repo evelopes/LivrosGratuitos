@@ -7,10 +7,12 @@ import time
 print('Executando o atualizarPagina.py')
 def atualizar():
     os.system("python lista.py")
+    os.system("python lista2.py")
 
 def push():
     os.system("git add .")
     os.system("git add livros.js")
+    os.system("git add livros2.js")
     os.system('git commit -m "Atualização automática"')
     os.system("git push")
 

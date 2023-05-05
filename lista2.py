@@ -60,7 +60,7 @@ def escreveArquivo(linkLivros, nomeLivros, imagensLivrs, url, tema):
         except Exception as e:
             main(url, tema)
         finally:
-            print("executando de novo " + tema)
+            print("executando " + tema)
 
     
     with open('livros2.js', 'r', encoding='utf-8') as arq:
@@ -73,7 +73,7 @@ def escreveArquivo(linkLivros, nomeLivros, imagensLivrs, url, tema):
 with open('livros2.js', 'w', encoding='utf-8') as arquivo:
     arquivo.write('export const listaLivros = [')
 
-for i in range(30):
+for i in range(29):
     main(linksPorTema[i], temas[i])
 
 with open('livros2.js', 'a', encoding='utf-8') as arquivo:
