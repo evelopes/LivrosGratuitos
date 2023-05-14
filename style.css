@@ -11,9 +11,10 @@ body {
     display: flex;
     max-width: 70%;
     flex-wrap: wrap;
-    padding: 15px;
     justify-content: center;
+    padding: 15px;
 }
+
 
 .livro {
     margin: 5px;
