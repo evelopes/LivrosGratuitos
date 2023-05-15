@@ -51,10 +51,11 @@ def escreveArquivo(linkLivros, nomeLivros, imagensLivrs, url, tema):
     with open('livros2.js', 'a', encoding='utf-8') as arquivo:
         try:
             for i in range(8):
+                titulTema = tema
                 urlBook = linkLivros[i]
                 nameBook = nomeLivros[i]
                 imgBook = imagensLivrs[i]
-                objetoLivro = f'{{"imagem": "{imgBook}", "url": "{urlBook}", "nome": "{nameBook}"}}\n'
+                objetoLivro = f'{{"imagem": "{imgBook}", "url": "{urlBook}", "nome": "{nameBook}", "tema" : "{titulTema}"}}\n'
                 arquivo.write(objetoLivro)
                 arquivo.write(',')
         except Exception as e:
