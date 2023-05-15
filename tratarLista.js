@@ -24,6 +24,8 @@ function displayBooks(livros) {
     const h1 = document.createElement("h1");
     h1.textContent = tema;
     container.appendChild(h1);
+    const br = document.createElement("br");
+    container.appendChild(br)
     
     const DIV = document.createElement("div");
 
