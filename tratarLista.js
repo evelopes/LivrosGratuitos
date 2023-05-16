@@ -23,8 +23,9 @@ function displayBooks(livros) {
     // Criação do elemento h1 para o tema
     const h1 = document.createElement("h1");
     h1.textContent = tema;
-    container.appendChild(h1);
     const br = document.createElement("br");
+    container.appendChild(br)
+    container.appendChild(h1);
     container.appendChild(br)
     
     const DIV = document.createElement("div");
@@ -37,6 +38,7 @@ function displayBooks(livros) {
       a.setAttribute("href", livro.url);
       img.setAttribute("src", livro.imagem);
       img.setAttribute("alt", livro.nome);
+      img.setAttribute("title", livro.nome);
       img.classList.add("livro");
 
       a.appendChild(img);
