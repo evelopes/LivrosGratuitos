@@ -50,7 +50,7 @@ def main(url, tema):
 def escreveArquivo(linkLivros, nomeLivros, imagensLivrs, url, tema):
     with open('livros2.js', 'a', encoding='utf-8') as arquivo:
         try:
-            for i in range(12):
+            for i in range(8):
                 titulTema = tema
                 urlBook = linkLivros[i]
                 nameBook = nomeLivros[i]
