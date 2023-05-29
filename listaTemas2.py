@@ -45,7 +45,7 @@ linksPorTema = [
     "https://amzn.to/3pN1ljc",
     "https://amzn.to/3OpSKgT",
     "https://amzn.to/45faMIq",
-    "",#https://amzn.to/3B3tEw4  >> pegar a pagina dois e colocar entre as aspas
+    "https://amzn.to/427vffL",
     "https://amzn.to/3VDnOv5",
     "https://amzn.to/3pfihPn",
     "https://amzn.to/3HEFSPJ",
