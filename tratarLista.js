@@ -25,7 +25,7 @@ function displayBooks(livros) {
     h1.textContent = tema;
     const br = document.createElement("br");
     container.appendChild(br)
-    container.appendChild(h1)
+    container.appendChild(h1);
     container.appendChild(br)
     
     const DIV = document.createElement("div");
@@ -34,7 +34,6 @@ function displayBooks(livros) {
     livrosDoTema.forEach((livro) => {
       const a = document.createElement("a");
       const img = document.createElement("img");
-      const p = document.createElement("p");
 
       a.setAttribute("href", livro.url);
       img.setAttribute("src", livro.imagem);
@@ -44,10 +43,8 @@ function displayBooks(livros) {
 
       a.appendChild(img);
       DIV.appendChild(a);
-    }
-    );
+    });
     container.appendChild(DIV)
-
   }
 
 }
