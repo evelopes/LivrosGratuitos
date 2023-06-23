@@ -5,7 +5,7 @@ function displayBooks(livros) {
   const container = document.querySelector("#livros-container");
   const temas = {};
 
-  // Agrupar os livros pelo tema
+  
   livros.forEach((livro) => {
     const tema = livro.tema;
 
@@ -16,11 +16,11 @@ function displayBooks(livros) {
     }
   });
 
-  // Criar elementos HTML para cada tema e seus respectivos livros
+  
   for (const tema in temas) {
     const livrosDoTema = temas[tema];
 
-    // Criação do elemento h1 para o tema
+    
     const h1 = document.createElement("h1");
     h1.textContent = tema;
     const br = document.createElement("br");
@@ -30,7 +30,7 @@ function displayBooks(livros) {
     
     const DIV = document.createElement("div");
 
-    // Criação dos elementos HTML para cada livro
+    
     livrosDoTema.forEach((livro) => {
       const a = document.createElement("a");
       const img = document.createElement("img");
