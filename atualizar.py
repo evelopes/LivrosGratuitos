@@ -16,6 +16,8 @@ def push():
     os.system('git commit -m "Atualização automática"')
     os.system("git push")
 
+atualizar()
+push()
 
 schedule.every().day.at("10:20").do(atualizar)
 schedule.every().day.at("10:25").do(push)
@@ -33,5 +35,5 @@ schedule.every().day.at("22:05").do(push)
 while True:
     schedule.run_pending()
     time.sleep(1)
-
+    
 #python atualizar.py
