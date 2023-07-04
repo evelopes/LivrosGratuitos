@@ -57,7 +57,6 @@ def escreveArquivo(linkLivros, nomeLivros, imagensLivrs, url, tema):
                 arquivo.write(',')
         except Exception as e:
             main(url, tema)
-            print("exception " + tema)
         finally:
             print("executando " + tema)
 
